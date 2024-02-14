@@ -1,0 +1,93 @@
+using System;
+using System.Linq;
+
+namespace Merge_sort;
+
+public static class Program
+{
+	public static void mergesort(int[] array)
+	{
+		int[] result = mergesort(array, 0, array.Length);
+
+		Array.Copy(result, array, result.Length);
+
+
+		//9    1
+
+		//1236456
+
+	}
+
+	public static int[] mergesort(int[] array, int start, int end)
+	{
+		//fase1 split
+		if (end - start < 2)
+			return new int[] { array[start] };
+		int mid = start + ((end - start) / 2);
+		int[] left = mergesort(array, start, mid);
+		int[] right = mergesort(array, mid, end);
+		//fase2 sort and merge
+		int[] result = new int[left.Length + right.Length];
+		int idxl = 0;
+		int idxr = 0;
+		int i = 0;
+		for (; idxl < left.Length && idxr < right.Length; i++)
+		{
+			if (left[idxl] < right[idxr])
+			{
+				result[i] = left[idxl];
+				idxl++;
+			}
+			else
+			{
+
+				result[i] = right[idxr];
+				idxr++;
+			}
+
+		}
+
+		//copy r array	
+		while (idxl < left.Length)
+		{
+			result[i++] = left[idxl++];
+		}
+
+		while (idxr < right.Length)
+		{
+			result[i++] = right[idxr++];
+		}
+
+
+		return result;
+
+	}
+
+	public static void Main()
+	{
+
+		int[] arr = new int[7] { 7, 3, 2, 4, 5, 9, 8 };
+
+		mergesort(arr);
+
+		Console.WriteLine(string.Join(",", arr));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	}
+}
