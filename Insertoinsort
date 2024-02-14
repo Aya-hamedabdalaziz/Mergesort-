@@ -1,0 +1,69 @@
+using System;
+using System.Linq;
+using CSharpShellCore;
+
+namespace Selectoin_sort_c;
+
+public static class Program
+{
+     // 98765
+    public static void selectionsort(int[]array, int n){
+	
+	 n=array.Length;
+	int temp,min_pos;
+	for(int i=0;i<n-1;i++){
+	 min_pos=i;
+	for(int j=i+1;j<n;j++){
+	
+	  if (array[j]<array[min_pos])
+	     min_pos=j;
+	
+	
+	
+	
+	}
+	if(min_pos!=i)
+	
+	 {
+	 temp=array[i];
+	 array[i]=array[min_pos];
+	 array[min_pos]=temp;
+	 
+	 }
+	
+	
+	
+	}
+	
+	
+	
+	}
+	
+	
+	
+	public static void Main()
+	{
+
+	
+	int[]arr={4,9,8,7,6,5};
+	
+	
+	
+	selectionsort(arr,6);
+	Console.WriteLine(String.Join(",",arr));
+		int n=int.Parse(Console.ReadLine());
+
+int []a=new int[n];
+for(int i=0; i <a.Length;i++)
+{
+
+ a[i]=int.Parse(Console.ReadLine());
+
+
+}
+selectionsort(a,n);
+	Console.WriteLine(String.Join(",",a));
+
+
+	}
+}
